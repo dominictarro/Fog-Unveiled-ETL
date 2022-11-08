@@ -16,15 +16,12 @@ class Config:
     upload_task_retry_delay_seconds: int
 
 
-ConfigSchema = marshmallow_dataclass.class_schema(Config)
-
-__config = {
-    "download_task_retries": os.getenv('DOWNLOAD_TASK_RETRIES', 5),
-    "download_task_retry_delay_seconds": os.getenv('DOWNLOAD_TASK_RETRY_DELAY_SECONDS', 60),
-    "upload_task_retries": os.getenv('UPLOAD_TASK_RETRIES', 5),
-    "upload_task_retry_delay_seconds": os.getenv('UPLOAD_TASK_RETRY_DELAY_SECONDS', 60)
-}
-config: Config = ConfigSchema().load(__config)
+config: Config = Config(
+    download_task_retries=os.getenv('DOWNLOAD_TASK_RETRIES', 5),
+    download_task_retry_delay_seconds=os.getenv('DOWNLOAD_TASK_RETRY_DELAY_SECONDS', 60),
+    upload_task_retries=os.getenv('UPLOAD_TASK_RETRIES', 5),
+    upload_task_retry_delay_seconds=os.getenv('UPLOAD_TASK_RETRY_DELAY_SECONDS', 60)
+)
 
 # Shared Blocks from Prefect Cloud
 prefect_fs = S3.load("fog-unveiled-bucket")

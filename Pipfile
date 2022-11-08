@@ -9,7 +9,6 @@ beautifulsoup4 = "*"
 prefect = "*"
 prefect-aws = "*"
 lxml = "*"
-marshmallow-dataclass = "*"
 s3fs = "*"
 click = "*"
 
