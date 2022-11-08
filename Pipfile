@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+requests = "*"
+beautifulsoup4 = "*"
+prefect = "*"
+prefect-aws = "*"
+lxml = "*"
+marshmallow-dataclass = "*"
+s3fs = "*"
+click = "*"
+
+[dev-packages]
+pipenv = "*"
+commitizen = "*"
+pre-commit = "*"
+
+[requires]
+python_version = "3.10"
