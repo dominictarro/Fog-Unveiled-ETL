@@ -4,7 +4,6 @@ Container class for loading the pipeline's configuration.
 import dataclasses
 import os
 
-import marshmallow_dataclass
 from prefect.filesystems import S3
 
 

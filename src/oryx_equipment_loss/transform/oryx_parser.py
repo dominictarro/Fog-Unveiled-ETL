@@ -179,7 +179,8 @@ import bs4
 
 from src.oryx_equipment_loss.transform.asset_category import AssetCategoryParser
 from src.oryx_equipment_loss.transform.correction import autoid, set_attachments
-from src.oryx_equipment_loss.validation import validate
+from src.oryx_equipment_loss.validation import default_rulebook
+from src.rulebook import validate
 
 if TYPE_CHECKING:
     from src.oryx_equipment_loss.case import Case
@@ -219,7 +220,7 @@ class OryxParser:
                 categories.append(tag)
         return tuple(categories)
 
-    @validate(logger=logger)
+    @validate(rulebook=default_rulebook, logger=logger)
     @autoid
     @set_attachments
     def cases(self, country_of_loss: str) -> Generator[Case, None, None]:
